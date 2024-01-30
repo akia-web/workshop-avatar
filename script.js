@@ -47,10 +47,18 @@ video.addEventListener('play', () => {
   }, 100)
 })
 
+const chat = document.getElementsByClassName('chat')[0]
 
+const messageChat = ['<p>lala</p>','<p>lolo</p>', '<p>lulu</p>' ]
+
+for(let i = 0; i< messageChat.length; i++){
 
 setInterval(() =>{
-  const chat = document.getElementsByClassName('chat')
-  chat.innerHtml = 'lala'
-},100)
+
+  chat.innerHTML = messageChat[i]
+},10000)
+
+}
+
+
 
