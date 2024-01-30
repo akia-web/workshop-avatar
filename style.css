@@ -61,7 +61,7 @@ nav{
 }
 
 .symbole{
-    fill: white;
+    cursor: pointer;
     color: white;
 }
 #avatar{
@@ -122,4 +122,8 @@ iframe{
 }
 .green{
     color: green;
+}
+
+.active{
+    color: #9147FF;
 }

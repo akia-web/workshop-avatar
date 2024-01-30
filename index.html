@@ -29,9 +29,12 @@
       <div class="right">
         <button class="button-left">Se connecter</button>
         <button class="button-right">S'inscrire</button>
-        <span class="material-symbols-outlined symbole">
-          person
+        <span id="homme" class="material-symbols-outlined symbole" title="homme" onclick="changeSexe('homme')">
+          face_5
           </span>
+          <span id="femme" class="material-symbols-outlined symbole" title="femme" onclick="changeSexe('femme')">
+            face_3
+            </span>
       </div>
   
     </nav>
@@ -45,7 +48,7 @@
       <video id="video" width="1" height="1" autoplay muted></video>
   
       <div class="container">
-        <img id="avatar" src="image/neutre.png"></canvas>
+        <img id="avatar"></canvas>
         <iframe src="https://www.youtube.com/embed/79zsZ4RLqJQ?si=_oEcSWMehG8THxpo&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
 

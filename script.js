@@ -1,4 +1,37 @@
 const video = document.getElementById('video')
+let sexe;
+
+let img = document.getElementById('avatar');
+
+
+if(localStorage.getItem('v-live')){
+  sexe = localStorage.getItem('v-live')
+}else{
+  localStorage.setItem('v-live', 'femme')
+}
+
+toogleActiveAvatar()
+
+function toogleActiveAvatar(){
+  const homme = document.getElementById('homme')
+  const femme = document.getElementById('femme')
+  if(localStorage.getItem('v-live')==='homme'){
+    femme.classList.remove("active")
+    homme.classList.add('active')
+  }else{
+    homme.classList.remove("active")
+    femme.classList.add('active')
+  }
+}
+
+
+function changeSexe(sexeSelected){
+  sexe = sexeSelected
+  localStorage.setItem('v-live', sexeSelected)
+  img.src =`image/${sexe}/neutre.png`;
+  toogleActiveAvatar()
+
+}
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -43,7 +76,7 @@ video.addEventListener('play', () => {
     const emotion = getEmotion(detections[0].expressions);
 
     let img = document.getElementById('avatar');
-    img.src =`image/${emotion}.png`;
+    img.src =`image/${sexe}/${emotion}.png`;
   }, 100)
 })
 
