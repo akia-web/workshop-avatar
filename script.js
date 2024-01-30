@@ -17,10 +17,12 @@ function startVideo() {
 
 function getEmotion(objet){
   console.log(objet.happy)
-  if(objet.happy >= 0.90 && objet.happy <1){
+  if(objet.happy >= 0.90 && objet.happy <1.1){
      return 'happy'
-  }else if(objet.surprised >= 0.90 && objet.surprised <1){
+  }else if(objet.surprised >= 0.90 && objet.surprised <1.1){
     return 'surprised'
+  }else if(objet.sad >= 0.90 && objet.sad <1.1){
+    return 'sad'
   }else{
     return 'neutre'
   }
@@ -39,11 +41,16 @@ video.addEventListener('play', () => {
     .withFaceExpressions()
 
     let emotion = getEmotion(detections[0].expressions)
+    console.log(emotion)
 
     let img = document.getElementById('avatar')
     img.src =`image/${emotion}.png`
 
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
+    // canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+    // faceapi.draw.drawDetections(canvas, resizedDetections)
+    // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+    // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 
   }, 100)
 })
