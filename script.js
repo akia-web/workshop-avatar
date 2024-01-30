@@ -49,16 +49,21 @@ video.addEventListener('play', () => {
 
 const chat = document.getElementsByClassName('chat')[0]
 
-const messageChat = ['<p>lala</p>','<p>lolo</p>', '<p>lulu</p>' ]
+const messageChat = ["<p><span class='red'>BobyDu78 : </span> C'est quoi le jeu?</p>','<p>lolo</p>', '<p>lulu</p>" ]
 
-for(let i = 0; i< messageChat.length; i++){
 
-setInterval(() =>{
+let index = 0;
 
-  chat.innerHTML = messageChat[i]
-},10000)
+function afficherMessage() {
+  chat.innerHTML += messageChat[index];
+  index++;
 
+  if (index === messageChat.length) {
+    index = 0; // Revenir au premier message après le dernier
+  }
 }
 
+afficherMessage();
+setInterval(afficherMessage, 10000);
 
 
