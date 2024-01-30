@@ -49,7 +49,7 @@ video.addEventListener('play', () => {
 
 const chat = document.getElementsByClassName('chat')[0]
 
-const messageChat = ["<p><span class='red'>BobyDu78 : </span> C'est quoi le jeu?</p>','<p>lolo</p>', '<p>lulu</p>" ]
+const messageChat = ["<p> <span class='red'> BobyDu78 : </span> C'est quoi le jeu?</p>", "<p><span class='bleu'> loulouleFou : </span>Nice movee </p>",  "<p><span class='green'> TheKingV : </span> it was epic </p>" ]
 
 
 let index = 0;
