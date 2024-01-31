@@ -133,12 +133,16 @@ iframe{
 }
 
 .main-buttons {
+    display: flex;
     position: absolute;
     right: 0;
     color: white;
-    padding: 5px;
+    padding:5px ;
     margin-top: 1em;
+    width: 260px;
+    justify-content: space-between;
 }
+
 
 .follow-btn{
     border-radius: 5px;
@@ -162,4 +166,10 @@ iframe{
 
 .purple{
     color: #9147FF;
+    align-items: center;
+    display: flex;
+}
+
+svg{
+    margin-right: 5px;
 }
