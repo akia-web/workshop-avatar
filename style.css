@@ -5,7 +5,7 @@ box-sizing: border-box;
 }
 
 .logo{
-    width: 40px;
+    width: 100px;
 }
 .main-center{
     width: 65%;
@@ -26,6 +26,10 @@ nav{
     justify-content: space-between;
     color: white;
     font-weight: 600;
+}
+
+.left{
+    align-items: flex-end;
 }
 
 .left p{
