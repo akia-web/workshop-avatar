@@ -1,14 +1,16 @@
 const video = document.getElementById('video')
+const img = document.getElementById('avatar');
 let sexe;
 
-let img = document.getElementById('avatar');
+function getSexe(){
+  if(localStorage.getItem('v-live')){
+    return localStorage.getItem('v-live')
+  }else{
+    localStorage.setItem('v-live', 'femme')
+    return 'femme'
+  }
+} 
 
-
-if(localStorage.getItem('v-live')){
-  sexe = localStorage.getItem('v-live')
-}else{
-  localStorage.setItem('v-live', 'femme')
-}
 
 toogleActiveAvatar()
 
@@ -62,10 +64,12 @@ function getEmotion(objet){
 }
 
 video.addEventListener('play', () => {
+   sexe = getSexe()
   const canvas = faceapi.createCanvasFromMedia(video);
   document.body.append(canvas);
   const displaySize = { width: video.width, height: video.height };
   faceapi.matchDimensions(canvas, displaySize);
+  img.src =`image/${sexe}/neutre.png`;
 
   setInterval(async () => {
     const detections = await faceapi.detectAllFaces(video, 
@@ -74,8 +78,6 @@ video.addEventListener('play', () => {
     .withFaceExpressions();
 
     const emotion = getEmotion(detections[0].expressions);
-
-    let img = document.getElementById('avatar');
     img.src =`image/${sexe}/${emotion}.png`;
   }, 100)
 })
